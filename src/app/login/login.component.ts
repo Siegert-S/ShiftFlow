@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,32 +11,27 @@ import { MyInputComponent } from "../my-input/my-input.component";
   selector: 'app-login',
   standalone: true,
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     MatCardModule,
-    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    CommonModule,
-    MyInputComponent
-],
+    MyInputComponent,
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 
-  hidePass = true;
+  form = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
 
-  switchPass() {
-    this.hidePass = !this.hidePass;
-    console.log(this.hidePass);
-    
-  }
-
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
+  submit() {
+    console.log('Form values:', this.form.value);
+    console.log('Form valid:', this.form.valid);
   }
 }

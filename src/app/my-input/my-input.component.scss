@@ -14,14 +14,6 @@
     padding: 0 8px;
     transition: border-color .2s ease;
 
-    &:focus-within {
-        border-color: #3f51b5;
-    }
-
-    &:has(input:invalid) {
-        border-color: #f12828;
-    }
-
     input {
         flex: 1;
         padding: 12px;
@@ -45,30 +37,39 @@
         padding: 0 4px;
     }
 
-    input:focus+label {
-        top: -10px;
-        left: 10px;
-        font-size: 12px;
-        color: #3f51b5;
-        padding: 0 6px;
-        transform: translateY(-0%);
+    &.invalid {
+        border-color: #f12828;
+
+        label {
+            color: #f12828;
+        }
     }
 
-    input:not(:placeholder-shown):not(:focus):valid+label {
-        top: -10px;
-        left: 10px;
-        font-size: 12px;
-        color: black;
-        padding: 0 6px;
-        transform: translateY(-0%);
+    &.focus {
+        border-color: #3f51b5;
+
+        label {
+            color: #3f51b5;
+        }
     }
 
-    input:not(:placeholder-shown):not(:focus):invalid+label {
-        top: -10px;
-        left: 10px;
-        font-size: 12px;
-        color: #f12828;
-        padding: 0 6px;
-        transform: translateY(-0%);
+    &.touched {
+        border-color: black;
+
+        label {
+            color: black;
+        }
+    }
+
+    &.invalid,
+    &.focus,
+    &.touched {
+        label {
+            top: -10px;
+            left: 10px;
+            font-size: 12px;
+            padding: 0 6px;
+            transform: translateY(-0%);
+        }
     }
 }

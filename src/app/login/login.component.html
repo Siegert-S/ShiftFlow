@@ -1,52 +1,47 @@
 <div>
-    <form>
+    <!-- <form>
         <label for="name"></label>
         <input type="text" name="name" placeholder="name">
         <label for="password"></label>
         <input type="password" name="password" placeholder="password">
         <input class="bnt_shape" type="button" value="register">
         <input class="bnt_shape" type="button" value="login">
-    </form>
-    <app-my-input name="passwort" type="password"></app-my-input>
-    <app-my-input></app-my-input>
+    </form> -->
+
 </div>
 
 <div class="login-container">
     <mat-card>
         <mat-card-title class="center-title">Login</mat-card-title>
         <mat-card-content>
-            <form class="login_form">
 
-                <!-- <mat-form-field appearance="outline" class="form_field"> -->
-                <!-- <mat-label>Email</mat-label> -->
-                <!-- <input matInput placeholder="Placeholder"> -->
-                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-                <!-- <mat-hint>Hint</mat-hint> -->
-                <!-- </mat-form-field> -->
-                <!-- 
-                <mat-form-field appearance="outline" class="form_field">
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="hide() ? 'password' : 'text'">
-                    <button matIconButton matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide()">
-                        <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field> -->
+            <form [formGroup]="form" (ngSubmit)="submit()">
+                <app-my-input formControlName="username" name="username" type="text">
+                </app-my-input>
 
-                <div class="test_field">
-                    <input type="text" name="name" placeholder=" ">
-                    <label for="name">Name</label>
-                </div>
+                <app-my-input formControlName="password" name="password" type="password">
+                </app-my-input>
 
-                <div class="test_field">
-                    <input [type]="hidePass ? 'password' : 'text'" name="password" placeholder=" ">
-                    <label for="password">Password</label>
-                    <mat-icon (click)="switchPass()">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </div>
-
-                <button mat-raised-button color="primary">Einloggen</button>
+                <button type="submit">Login</button>
             </form>
+
+            <!-- <form class="login_form">
+                <app-my-input name="passwort" type="password"></app-my-input>
+                <app-my-input></app-my-input> -->
+
+            <!-- <div class="test_field"> -->
+            <!-- <input type="text" name="name" placeholder=" "> -->
+            <!-- <label for="name">Name</label> -->
+            <!-- </div> -->
+
+            <!-- <div class="test_field"> -->
+            <!-- <input [type]="hidePass ? 'password' : 'text'" name="password" placeholder=" "> -->
+            <!-- <label for="password">Password</label> -->
+            <!-- <mat-icon (click)="switchPass()">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+            <!-- </div> -->
+
+            <!-- <button mat-raised-button color="primary">Einloggen</button>
+            </form> -->
         </mat-card-content>
     </mat-card>
 </div>
-

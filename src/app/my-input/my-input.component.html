@@ -1,17 +1,21 @@
-<div class="input-field">
-    <input 
-        [type]="type === 'password' ? (hide ? 'password' : 'text') : type"
-        [attr.name]="name"
-        [value]="value"
-        [disabled]="disabled"
-        placeholder=" "
+<div class="input-field" 
+[ngClass]="{ 
+        'focus': focus,
+        'invalid' : control?.invalid,
+        'touched': control?.touched
+    }">
+
+    <input [type]="type === 'password' ? (hide ? 'password' : 'text') : type" 
+        [attr.name]="name" [value]="value"
+        [disabled]="disabled" 
+        placeholder=" " 
         (input)="updateValue($event)" 
-        (blur)="markTouched()"
-     />
+        (blur)="onBlur()" 
+        (focus)="onFocus()" 
+    />
+
     <label [for]="name">{{name | titlecase}}</label>
     @if (type == 'password') {
     <mat-icon (click)="switchPass()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     }
 </div>
-
-
