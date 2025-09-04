@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { MyInputComponent } from "../my-input/my-input.component";
+import { MyInputComponent } from "../../my-input/my-input.component";
 
 @Component({
   selector: 'app-login',

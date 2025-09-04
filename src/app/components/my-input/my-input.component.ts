@@ -1,4 +1,4 @@
-import { Component, forwardRef, Injector, Input, Optional, Self } from '@angular/core';
+import { Component, forwardRef, Injector, Input, } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { TitleCasePipe, NgClass } from '@angular/common';
@@ -13,7 +13,6 @@ import { TitleCasePipe, NgClass } from '@angular/common';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => MyInputComponent),
-      // useExisting: MyInputComponent,
       multi: true
     }
   ]
@@ -31,22 +30,17 @@ export class MyInputComponent implements ControlValueAccessor {
 
   private onChange: (value: string) => void = () => { };
   private onTouched: () => void = () => { };
+  private _control: FormControl | null = null;
 
   constructor(private injector: Injector) { }
 
-  // ngOnInit()
   ngAfterViewInit() {
     const ngControl = this.injector.get(NgControl, null);
     if (ngControl) {
       ngControl.valueAccessor = this;
       this._control = ngControl.control as FormControl;
     }
-    console.log(this.control);
-
   }
-
-  private _control: FormControl | null = null;
-
 
   get control(): FormControl | null {
     return this._control;
@@ -55,19 +49,20 @@ export class MyInputComponent implements ControlValueAccessor {
   writeValue(obj: any): void {
     this.value = obj ?? '';
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 
   updateValue(event: Event) {
-    console.log('update trigger');
-
     const input = event.target as HTMLInputElement;
     this.value = input.value;
     this.onChange(this.value);
@@ -75,24 +70,15 @@ export class MyInputComponent implements ControlValueAccessor {
 
   markTouched() {
     this.onTouched();
-    console.log(this.control);
-
   }
 
   onFocus() {
     this.focus = true;
-    console.log('focus');
-    console.log(this.value);
-
   }
 
   onBlur() {
     this.focus = false;
     this.markTouched();
-
-    console.log('blur');
-    console.log(this.value);
-
   }
 
   switchPass() {

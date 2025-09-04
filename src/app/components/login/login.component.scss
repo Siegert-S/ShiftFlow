@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.bnt_shape {
+    width: 250px;
+    height: 24px;
+}
+
+.login-container {
+    width: 400px;
+    height: 600px;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-title {
+    text-align: center;
+}

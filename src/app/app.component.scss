@@ -1,0 +1,118 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.haeder {
+    height: 48px;
+    width: 100%;
+    background-color: lightblue;
+
+    div {
+        background-color: aqua;
+    }
+}
+
+.footer {
+    height: 32px;
+    width: 100%;
+    background-color: lightcoral;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.app {
+    flex: 1;
+    width: 100%;
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    background-color: royalblue;
+    height: 100%;
+    // width: 20%;
+    // min-width: 250px;
+    transition: all ease-in-out 125ms;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    // &.hide {
+        // transform: translateX(-100%);
+
+    //     width: 0;
+    //     min-width: 0;
+    //     overflow: hidden;
+    // }
+
+    div {
+        white-space: nowrap;
+    }
+}
+
+.content {
+    background-color: firebrick;
+    height: 100%;
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all ease-in-out 125ms;
+}
+
+/* Desktop (Sidebar schrumpfen mit width) */
+@media (min-width: 769px) {
+  .menu {
+    width: 20%;
+    min-width: 250px;
+    overflow: hidden;
+
+    &.hide {
+      width: 0;
+      min-width: 0;
+    }
+  }
+}
+
+/* Mobile (Drawer slidet rein/raus mit transform) */
+
+@media (max-width: 768px) {
+    .app {
+        position: relative; 
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        min-width: unset;
+        transform: translateX(0); 
+        z-index: 10;
+
+        &.hide {
+            transform: translateX(-100%); 
+        }
+    }
+
+    .content {
+        flex: 1;
+    }
+}

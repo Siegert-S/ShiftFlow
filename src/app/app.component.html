@@ -1,1 +1,20 @@
-<app-login></app-login>
+<!-- <section class="haeder">
+    <div (click)="switchMenu()">menu</div>
+</section> -->
+<app-header [(hideMenu)]="hideMenu" [tabName]="'Watt'"></app-header>
+<section class="app">
+    <div class="menu" [ngClass]="{'hide' :hideMenu}">
+        <div>menu tab</div>
+        <div>menu tab</div>
+        <div>menu tab</div>
+        <div>menu tab</div>
+        <div>menu tab</div>
+    </div>
+    <div class="content">
+        <app-login></app-login>
+    </div>
+</section>
+<section class="footer">
+    <div>impressum</div>
+    <div>darenschutz</div>
+</section>
