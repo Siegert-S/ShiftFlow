@@ -1,11 +1,15 @@
-
 <div class="login-container">
     <mat-card>
         <mat-card-title class="center-title">Login</mat-card-title>
         <mat-card-content>
 
             <form [formGroup]="form" (ngSubmit)="submit()">
-                <app-my-input formControlName="username" name="username" type="text">
+                <app-my-input 
+                    formControlName="email" 
+                    name="email" 
+                    type="text"
+                   
+                >
                 </app-my-input>
 
                 <app-my-input formControlName="password" name="password" type="password">
@@ -13,21 +17,6 @@
 
                 <button type="submit">Login</button>
             </form>
-
-            <!-- <form class="login_form">
-                <app-my-input name="passwort" type="password"></app-my-input>
-                <app-my-input></app-my-input> -->
-
-            <!-- <div class="test_field"> -->
-            <!-- <input type="text" name="name" placeholder=" "> -->
-            <!-- <label for="name">Name</label> -->
-            <!-- </div> -->
-
-            <!-- <div class="test_field"> -->
-            <!-- <input [type]="hidePass ? 'password' : 'text'" name="password" placeholder=" "> -->
-            <!-- <label for="password">Password</label> -->
-            <!-- <mat-icon (click)="switchPass()">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-            <!-- </div> -->
 
             <!-- <button mat-raised-button color="primary">Einloggen</button>
             </form> -->

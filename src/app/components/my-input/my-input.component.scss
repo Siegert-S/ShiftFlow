@@ -1,6 +1,6 @@
 .input-field {
     position: relative;
-    margin: 20px 0;
+    margin: 20px 0 0 0;
     width: 250px;
 
     background-color: white;
@@ -37,6 +37,14 @@
         padding: 0 4px;
     }
 
+    &.touched {
+        border-color: black;
+
+        label {
+            color: black;
+        }
+    }
+
     &.invalid {
         border-color: #f12828;
 
@@ -53,14 +61,6 @@
         }
     }
 
-    &.touched {
-        border-color: black;
-
-        label {
-            color: black;
-        }
-    }
-
     &.invalid,
     &.focus,
     &.touched {
@@ -72,4 +72,21 @@
             transform: translateY(-0%);
         }
     }
+}
+
+.hint{
+    color: #f12828;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 0px 8px;
+    height: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; // überschreibt die gelbe Füllung
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: black; // Textfarbe neu setzen
 }

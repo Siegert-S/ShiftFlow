@@ -1,14 +1,14 @@
-<div class="input-field" 
-[ngClass]="{ 
+<div class="input-field" [ngClass]="{ 
         'focus': focus,
-        'invalid' : control?.invalid,
+        'invalid' : isInvalid(),
         'touched': control?.touched
     }">
 
-    <input [type]="type === 'password' ? (hide ? 'password' : 'text') : type" 
-        [attr.name]="name" [value]="value"
-        [disabled]="disabled" 
-        placeholder=" " 
+    <input 
+        [type]="type === 'password' ? (hide ? 'password' : 'text') : type" 
+        [attr.name]="name" 
+        [value]="value"        
+        [disabled]="disabled" placeholder=" " 
         (input)="updateValue($event)" 
         (blur)="onBlur()" 
         (focus)="onFocus()" 
@@ -19,3 +19,4 @@
     <mat-icon (click)="switchPass()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     }
 </div>
+<div class="hint" [style.visibility]="hint ? 'visible' : 'hidden'" > {{hint}} </div>

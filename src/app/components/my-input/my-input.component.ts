@@ -21,7 +21,8 @@ export class MyInputComponent implements ControlValueAccessor {
 
   @Input() type: 'text' | 'password' = 'text';
   @Input() name: string = 'name';
-  @Input() incorrect: boolean | null | undefined;
+  @Input() incorrect: boolean = false;
+  @Input() hint: string = '';
 
   focus = false;
   hide = true;
@@ -43,7 +44,47 @@ export class MyInputComponent implements ControlValueAccessor {
   }
 
   get control(): FormControl | null {
+
     return this._control;
+  }
+
+  isInvalid() {
+    // console.log(this.name);
+    // console.log('touched ' + this.control?.touched);
+    // console.log('invalid ' + this.control?.invalid);
+    // console.log('error');
+    // console.log(Object.keys(this.control?.errors ?? {}));
+    // console.log(this.control);
+
+    let touched = this.control?.touched;
+    let invalid = this.control?.invalid;
+    let fieldError = Object.keys(this.control?.errors ?? {});
+
+    if (touched) {
+      this.setHint(fieldError[0]);
+    }
+
+    return !!touched && !!invalid;
+  }
+
+  setHint(err: string) {
+    switch (err) {
+      case 'required':
+        this.hint = 'Plichtfeld';
+        break;
+
+      case 'pattern':
+        this.hint = 'Ungültige E-Mail';
+        break;
+
+      case undefined:
+        this.hint = '';
+        break;
+
+      default:
+        this.hint = err;
+        break;
+    }
   }
 
   writeValue(obj: any): void {
