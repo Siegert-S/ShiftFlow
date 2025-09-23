@@ -4,18 +4,18 @@
         <mat-card-content>
 
             <form [formGroup]="form" (ngSubmit)="submit()">
-                <app-my-input 
-                    formControlName="email" 
-                    name="email" 
-                    type="text"
-                   
-                >
+                <app-my-input formControlName="email" name="email" type="text">
                 </app-my-input>
 
                 <app-my-input formControlName="password" name="password" type="password">
                 </app-my-input>
 
-                <button type="submit">Login</button>
+                <div> {{auth.loginError()}} </div>
+
+                <!-- <button type="submit">Login</button> -->
+
+                <!-- <app-my-button name="Signin" theme="second" (clicked)="call()"></app-my-button> -->
+                <app-my-button type="submit" name="Login" theme="main" [disabled]="form.invalid" (clicked)="call()"></app-my-button>
             </form>
 
             <!-- <button mat-raised-button color="primary">Einloggen</button>

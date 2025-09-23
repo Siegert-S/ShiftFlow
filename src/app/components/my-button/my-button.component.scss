@@ -1,0 +1,54 @@
+.butoon-field {
+    margin: 20px 0;
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.main {
+    border: none;
+
+    background-color: #3f51b5;
+
+    color: white;
+
+    &:not(:disabled):hover {
+        background-color: #6779dd;
+    }
+
+    &:not(:disabled):active {
+        background-color: rebeccapurple;
+    }
+
+    &:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+}
+
+.second {
+    border: 2px solid #3f51b5;
+
+    background-color: inherit;
+    color: #3f51b5;
+
+    &:not(:disabled):hover {
+        border-width: 5px;
+        border-color: #6779dd;
+        color: #6779dd;
+    }
+
+    &:not(:disabled):active {
+        border-color: rebeccapurple;
+        color: rebeccapurple;
+    }
+
+    &:disabled {
+        border-color: gray;
+        color: gray;
+        cursor: not-allowed;
+    }
+}

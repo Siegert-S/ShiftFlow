@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MyInputComponent } from "../my-input/my-input.component";
 import { AuthService } from '../../services/auth.service';
+import { MyButtonComponent } from "../my-button/my-button.component";
 
 @Component({
   selector: 'app-login',
@@ -19,14 +20,15 @@ import { AuthService } from '../../services/auth.service';
     MatButtonModule,
     MatIconModule,
     MyInputComponent,
-  ],
+    MyButtonComponent
+],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 
-  private auth = inject(AuthService)
+   auth = inject(AuthService)
 
   form = new FormGroup({
     email: new FormControl<string>('', { validators: [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$')], nonNullable: true }),
@@ -48,6 +50,11 @@ export class LoginComponent {
     } else {
       return '';
     }
+  }
+
+  call(){
+    console.log('es wurde geclickt!');
+    
   }
 
   submit() {
