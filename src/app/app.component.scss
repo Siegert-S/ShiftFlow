@@ -41,27 +41,12 @@
 .menu {
     background-color: royalblue;
     height: 100%;
-    // width: 20%;
-    // min-width: 250px;
-    transition: all ease-in-out 125ms;
-
     display: flex;
     flex-direction: column;
-
     justify-content: flex-start;
     align-items: center;
 
-    // &.hide {
-        // transform: translateX(-100%);
-
-    //     width: 0;
-    //     min-width: 0;
-    //     overflow: hidden;
-    // }
-
-    div {
-        white-space: nowrap;
-    }
+    transition: all ease-in-out 125ms;
 }
 
 .content {
@@ -78,23 +63,23 @@
 
 /* Desktop (Sidebar schrumpfen mit width) */
 @media (min-width: 769px) {
-  .menu {
-    width: 20%;
-    min-width: 250px;
-    overflow: hidden;
+    .menu {
+        width: 20%;
+        min-width: 250px;
+        overflow: hidden;
 
-    &.hide {
-      width: 0;
-      min-width: 0;
+        &.hide {
+            width: 0;
+            min-width: 0;
+        }
     }
-  }
 }
 
 /* Mobile (Drawer slidet rein/raus mit transform) */
 
 @media (max-width: 768px) {
     .app {
-        position: relative; 
+        position: relative;
     }
 
     .menu {
@@ -104,11 +89,11 @@
         height: 100%;
         width: 250px;
         min-width: unset;
-        transform: translateX(0); 
+        transform: translateX(0);
         z-index: 10;
 
         &.hide {
-            transform: translateX(-100%); 
+            transform: translateX(-100%);
         }
     }
 
