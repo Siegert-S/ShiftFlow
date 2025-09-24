@@ -47,6 +47,10 @@
 
     white-space: nowrap;
 
+    &.active {
+        background-color: #3f51b5;
+    }
+
     &:hover {
         background-color: lightblue;
     }

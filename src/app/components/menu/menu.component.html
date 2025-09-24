@@ -1,32 +1,6 @@
 <div class="menu-wrapper">
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
-    <div class="menu-tab">menu Tab</div>
+    @for (item of menu(); track $index) {
+    <div class="menu-tab" [ngClass]="{'active': router.url === '/' + item.path}" [routerLink]="item.path">
+        {{item.title}} </div>
+    }
 </div>

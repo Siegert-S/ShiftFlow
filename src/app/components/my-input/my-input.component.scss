@@ -2,7 +2,7 @@
     position: relative;
     margin: 20px 0 0 0;
     width: 250px;
-height: 48px;
+    height: 48px;
     background-color: white;
 
     display: flex;
@@ -74,7 +74,7 @@ height: 48px;
     }
 }
 
-.hint{
+.hint {
     color: #f12828;
     font-size: 12px;
     font-weight: 700;
@@ -86,7 +86,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-internal-autofill-selected {
-  -webkit-box-shadow: 0 0 0px 1000px white inset; // überschreibt die gelbe Füllung
-  box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: black; // Textfarbe neu setzen
+    -webkit-box-shadow: 0 0 0px 1000px white inset; // überschreibt die gelbe Füllung
+    box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: black; // Textfarbe neu setzen
 }

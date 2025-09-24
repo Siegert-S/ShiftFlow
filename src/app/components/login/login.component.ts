@@ -35,13 +35,6 @@ export class LoginComponent {
     password: new FormControl<string>('', { validators: [Validators.required,], nonNullable: true })
   });
 
-  // get loginError(): string {
-  //   if (this.auth.loginError != null) {
-  //     return this.auth.loginError;
-  //   } else {
-  //     return '';
-  //   }
-  // }
 
   get loginError(): string {
     const err = this.auth.loginError();
@@ -68,6 +61,5 @@ export class LoginComponent {
     if (email && password) {
       this.auth.login(email, password);
     }
-    // this.auth.login(this.form.value.username, this.form.value.password);
   }
 }
