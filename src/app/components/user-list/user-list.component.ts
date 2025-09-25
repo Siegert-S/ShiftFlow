@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class UserListComponent {
 
+  userService = inject(UserService)
+
+  users = this.userService.getUsers();
 }

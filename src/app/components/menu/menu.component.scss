@@ -9,8 +9,12 @@
     background-color: magenta;
     flex: 1; // füllt den verfügbaren Platz im Container
     overflow-y: auto;
+}
 
-
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 ::-webkit-scrollbar {

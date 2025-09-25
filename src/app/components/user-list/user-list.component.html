@@ -1,1 +1,13 @@
-<p>user-list works!</p>
+<!-- <div class="list">user List</div> -->
+<ul class="list">
+    @for (item of users(); track $index) {
+    <li class="entry">
+        <div>
+            {{item.firstname}}
+        </div>
+        <div>
+            {{item.lastname}}
+        </div>
+    </li>
+    }
+</ul>
