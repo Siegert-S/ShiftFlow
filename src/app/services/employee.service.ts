@@ -1,25 +1,26 @@
 import { computed, Injectable, signal } from '@angular/core';
+import { Employee } from '../models/index.model';
 
-export type User = {
-  id: string;
-  firstname: string;
-  lastname: string;
-}
+// export type User = {
+//   id: string;
+//   firstname: string;
+//   lastname: string;
+// }
 @Injectable({
   providedIn: 'root'
 })
 
 
 
-export class UserService {
+export class EmployeeService {
 
 
-  private users = signal<User[]>(
+  private users = signal<Employee[]>(
     [
-      { id: '1', firstname: 'Max', lastname: 'Test' },
-      { id: '2', firstname: 'Meike', lastname: 'Probe' },
-      { id: '3', firstname: 'Adolf', lastname: 'Platzhalter' },
-      { id: '4', firstname: 'John', lastname: 'Dow' },
+      { id: '1', firstName: 'Max', lastName: 'Test' },
+      { id: '2', firstName: 'Meike', lastName: 'Probe' },
+      { id: '3', firstName: 'Adolf', lastName: 'Platzhalter' },
+      { id: '4', firstName: 'John', lastName: 'Dow' },
     ]
   )
 
@@ -37,7 +38,7 @@ export class UserService {
     return computed(() => this.users().find(u => u.id === id));
   }
 
-  addUser(user: User) {
+  addUser(user: Employee) {
     this.mockAdd(user);
     // DB verbindung hier einbauen!
   }
@@ -47,15 +48,15 @@ export class UserService {
     // DB verbindung hier einbauen!
   }
 
-  updateUser(id: string, updatedUser: User) {
+  updateUser(id: string, updatedUser: Employee) {
     this.mockUpdate(id, updatedUser);
     // DB verbindung hier einbauen!
   }
 
 
   // Mock funktionen zum testen des UI.
-  
-  mockAdd(user: User) {
+
+  mockAdd(user: Employee) {
     this.users.update(list => [...list, user]);
   }
 
@@ -63,7 +64,7 @@ export class UserService {
     this.users.update(list => list.filter(u => u.id !== id));
   }
 
-  mockUpdate(id: string, updatedUser: User) {
+  mockUpdate(id: string, updatedUser: Employee) {
     this.users.update(list =>
       list.map(u => u.id === id ? updatedUser : u)
     );

@@ -1,10 +1,11 @@
 import { Injectable, signal } from '@angular/core';
+import { MenuTab } from '../models/index.model';
 
-export type MenuTab = {
-  title: string;
-  path: string;
-  clearanceLevel: number
-}
+// export type MenuTab = {
+//   title: string;
+//   path: string;
+//   clearanceLevel: number
+// }
 
 @Injectable({
   providedIn: 'root'
