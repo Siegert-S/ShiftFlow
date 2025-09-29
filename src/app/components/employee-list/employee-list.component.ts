@@ -10,7 +10,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeListComponent {
 
-  userService = inject(EmployeeService)
+  employees = inject(EmployeeService)
 
-  users = this.userService.getUsers();
+  users = this.employees.getAll();
 }
