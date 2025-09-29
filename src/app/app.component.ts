@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginComponent } from "./components/login/login.component";
 import { NgClass } from '@angular/common';
 import { HeaderComponent } from "./components/header/header.component";
 import { MenuComponent } from "./components/menu/menu.component";
@@ -16,6 +15,11 @@ export class AppComponent {
   title = 'ShiftFlow';
 
   hideMenu = false;
+  activMenuTab: string = 'Login'
 
+  setMenuTab(name: string) {
+    this.activMenuTab = name;
+    console.log(name);
 
+  }
 }

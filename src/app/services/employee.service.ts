@@ -1,15 +1,9 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { Employee } from '../models/index.model';
 
-// export type User = {
-//   id: string;
-//   firstname: string;
-//   lastname: string;
-// }
 @Injectable({
   providedIn: 'root'
 })
-
 
 
 export class EmployeeService {

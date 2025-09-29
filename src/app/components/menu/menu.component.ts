@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { RouterLink, Router } from "@angular/router";
 import { NgClass } from '@angular/common';
@@ -16,4 +16,12 @@ export class MenuComponent {
   router = inject(Router)
 
   menu = this.menuService.getMenu()
+
+  @Output() activTab = new EventEmitter<string>();
+
+  // activTab: string = ''
+
+  setActivTab(name: string) {
+    this.activTab.emit(name);
+  }
 }

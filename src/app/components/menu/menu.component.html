@@ -1,14 +1,12 @@
-<!-- <div class="menu-wrapper">
-    @for (item of menu(); track $index) {
-    <div class="menu-tab" [ngClass]="{'active': router.url === '/' + item.path}" [routerLink]="item.path">
-        {{item.title}} </div>
-    }
-</div> -->
-
 <ul class="menu-wrapper list">
     @for (item of menu(); track $index) {
-    <li class="menu-tab" [ngClass]="{'active': router.url === '/' + item.path}" [routerLink]="item.path">
-        {{item.title}} </li>
+    <li 
+        class="menu-tab" 
+        [ngClass]="{'active': router.url === '/' + item.path}" 
+        [routerLink]="item.path"
+        (click)="setActivTab(item.title)">
+            {{item.title}} 
+        </li>
     }
 
 </ul>

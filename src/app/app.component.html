@@ -1,7 +1,7 @@
-<app-header [(hideMenu)]="hideMenu" [tabName]="'Watt'"></app-header>
+<app-header [(hideMenu)]="hideMenu" [tabName]="activMenuTab"></app-header>
 <section class="app">
     <div class="menu" [ngClass]="{'hide' :hideMenu}">
-        <app-menu></app-menu>
+        <app-menu (activTab)="setMenuTab($event)"></app-menu>
     </div>
     <div class="content">
         <router-outlet></router-outlet>
