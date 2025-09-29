@@ -5,10 +5,10 @@ import { EmployeeService } from '../../services/employee.service';
   selector: 'app-user-list',
   standalone: true,
   imports: [],
-  templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.scss'
+  templateUrl: './employee-list.component.html',
+  styleUrl: './employee-list.component.scss'
 })
-export class UserListComponent {
+export class EmployeeListComponent {
 
   userService = inject(EmployeeService)
 
