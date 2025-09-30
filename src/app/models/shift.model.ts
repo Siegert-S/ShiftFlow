@@ -3,5 +3,5 @@ export interface Shift {
     startTime: string;
     endTime: string;
     assignmentId: string;
-    status: 'planning' | 'confirmed';
+    status: 'planning' | 'confirmed' | 'changed';
 }

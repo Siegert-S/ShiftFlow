@@ -13,6 +13,10 @@ export class BaseService<T extends { id: string }> {
     return computed(() => this.items().find(i => i.id === id));
   }
 
+  getByIndex(index: number) {
+    return computed(() => this.items()[index]);
+  }
+
   add(item: T) {
     this.mockAdd(item);
     // DB verbindung hier einbauen!
