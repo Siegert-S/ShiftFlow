@@ -15,9 +15,9 @@ export class AuthService {
   login(email: string, password: string) {
     signInWithEmailAndPassword(this.auth, email, password).then(
       cred => {
-        this.userCredential.set(cred);
+        this.userCredential.set(cred.user);
         this.loginError.set(null);
-        console.log(cred);
+        console.log(cred.user);
       }
     ).catch(
       (err: FirebaseError) => {

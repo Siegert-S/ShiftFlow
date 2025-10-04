@@ -1,11 +1,11 @@
 <ul class="menu-wrapper list">
-    @for (item of menu(); track $index) {
-    <li 
-        class="menu-tab" 
-        [ngClass]="{'active': router.url === '/' + item.path}" 
-        [routerLink]="item.path"
-        (click)="setActivTab(item.title)">
-            {{item.title}} 
+    @for (item of visibelMenu(); track $index) {
+        <li 
+            class="menu-tab" 
+            [ngClass]="{'active': router.url === '/' + item.path}" 
+            [routerLink]="item.path"
+            (click)="setActivTab(item.title)">
+            {{item.title}}
         </li>
     }
 

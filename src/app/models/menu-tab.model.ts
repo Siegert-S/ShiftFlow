@@ -1,5 +1,6 @@
 export interface MenuTab {
     title: string;
     path: string;
-    clearanceLevel: number
+    authRequired: boolean;
+    clearanceLevel: number;
 }

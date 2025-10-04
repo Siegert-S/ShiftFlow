@@ -1,7 +1,8 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, computed, EventEmitter, inject, Output } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { RouterLink, Router } from "@angular/router";
 import { NgClass } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,13 +14,29 @@ import { NgClass } from '@angular/common';
 export class MenuComponent {
 
   menuService = inject(MenuService);
-  router = inject(Router)
+  router = inject(Router);
+  user = inject(AuthService);
+
+  credential = this.user.userCredential;
 
   menu = this.menuService.getMenu()
 
+  visibelMenu = computed(() => {
+    return this.menu().filter(tab => {
+      let result = tab.authRequired ? this.credential() != null : true;
+      console.log(result);
+
+      return result;
+    })
+  })
+
   @Output() activTab = new EventEmitter<string>();
 
-  // activTab: string = ''
+  constructor() {
+    // console.log(this.visibelMenu());
+
+  }
+
 
   setActivTab(name: string) {
     this.activTab.emit(name);
